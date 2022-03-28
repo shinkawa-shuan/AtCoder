@@ -6,8 +6,10 @@ base_url=${problem_name%_*}
 code_path=$2
 
 # make test directory
-if [ ! -e ${test_dir} ]; then
-    oj dl -d ${test_dir} https://atcoder.jp/contests/${base_url}/tasks/${problem_name//-/_}
+if [ ! -e "${test_dir}" ]; then
+    oj dl -d "${test_dir}" https://atcoder.jp/contests/"${base_url}"/tasks/"${problem_name//-/_}"
 fi
 
-g++ -std=c++14 -Wall -Wextra -O2 ${code_path} && oj test -c "./a.out " -d ${test_dir}
+g++ -std=c++14 "${code_path}" && oj test -c "./a.out " -d "${test_dir}"
+
+#-Wall -Wextra -O2
